@@ -1,6 +1,6 @@
 # Aura Eli/Viridiangames
 
-An original browser arcade with 31 games, made with plain HTML, CSS, and JavaScript. It has no build step, server code, external libraries, analytics, accounts, or downloads. The site runs on a regular static web host.
+An original browser arcade with 32 games, made with plain HTML, CSS, and JavaScript. It has no build step, server code, external libraries, analytics, accounts, or downloads. The site runs on a regular static web host.
 
 ## The games
 
@@ -35,6 +35,7 @@ An original browser arcade with 31 games, made with plain HTML, CSS, and JavaScr
 - **Planet Forge** — rotate a procedurally drawn planet, choose from eight worlds or a custom-named one, and leave persistent craters and fracture marks with six weapons. Add moons, zoom, undo, and reset damage.
 - **Block Bloom** — drag or tap shapes onto an 8 × 8 board, clear rows and columns, use combo scoring, and play classic, timed, or hard mode. Best score and line statistics are saved in the browser.
 - **Garden Chess** — play a full local match for two people sharing one device. Legal moves, check, checkmate, castling, en passant, promotion, undo, and reset are supported.
+- **Echo Grove** — tap twelve original browser-synthesized sounds in freeplay, or play Echo Challenge and repeat an ever-growing sequence. Sound, volume, keyboard pads, and a saved best score are included.
 
 The site adapts to phones, tablets, Chromebooks, and desktop screens. It uses local system fonts and draws its illustrations in CSS or JavaScript, so it does not fetch resources from other sites. The two player experiences are local: Hole Borough uses computer rivals and Garden Chess is pass-and-play. There is no online multiplayer server. Planet Forge uses a software-rendered canvas globe with lasting surface marks and animated fragments; it is not a 3D mesh or physical planet simulation. The project does not use a proxy, VPN, alternate DNS, or other way around network rules.
 
@@ -57,7 +58,7 @@ GitHub Pages is included below as an example for schools that approve GitHub Pag
 1. Confirm with the school that GitHub Pages, the `github.com` site for managing the files, and the resulting `github.io` address are permitted on school computers. Confirm that you are allowed to publish this project publicly. GitHub Pages sites are public on the internet; with a free GitHub account, the source repository also needs to be public. Do not upload private student or school information.
 2. Sign in to GitHub, create a repository for the project, and upload `index.html`, `styles.css`, `games.js`, `advanced-games.js`, and `README.md` to the repository's top level.
 3. In the repository, open **Settings → Pages**. Under the build and deployment settings, choose **Deploy from a branch**, select the `main` branch and the `/ (root)` folder, then save.
-4. Wait for the Pages status to show the published address. Open it on a device and network where that address is allowed, then check that all 31 games start and respond to their controls.
+4. Wait for the Pages status to show the published address. Open it on a device and network where that address is allowed, then check that all 32 games start and respond to their controls.
 5. Share the published address with students only if the school permits it.
 
 GitHub's menu labels can change. If they do, use the [current GitHub Pages instructions for publishing from a branch](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). The project itself does not need compiling or bundling.

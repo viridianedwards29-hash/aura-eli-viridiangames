@@ -13,7 +13,8 @@
     cookie: { title: 'Cookie Kingdom', category: 'INCREMENTAL · BAKERY EMPIRE', description: 'Click for cookies, invest in fourteen kinds of production, and unlock over a hundred building upgrades.' },
     planet: { title: 'Planet Forge', category: '3D-STYLE PLANET SANDBOX', description: 'Rotate worlds and use persistent, size-scaled weapons to carve craters and fracture their surfaces.' },
     blast: { title: 'Block Bloom', category: 'BLOCK PUZZLE · ENDLESS', description: 'Drag shapes onto the 8 × 8 board. Complete rows and columns to clear space and keep going.' },
-    chess: { title: 'Garden Chess', category: 'LOCAL TWO-PLAYER CHESS', description: 'A pass-and-play chess match for two people sharing this device. Moves, castling, en passant, promotion, check, and mate are handled locally.' }
+    chess: { title: 'Garden Chess', category: 'LOCAL TWO-PLAYER CHESS', description: 'A pass-and-play chess match for two people sharing this device. Moves, castling, en passant, promotion, check, and mate are handled locally.' },
+    sound: { title: 'Echo Grove', category: 'SOUNDBOARD · LISTEN & REPEAT', description: 'Tap a dozen original sounds in freeplay, or switch on Echo Challenge and repeat the grove’s growing sound pattern.' }
   };
   function makeHud(items) { hud.innerHTML = items.map((item, i) => `<div class="hud-chip"><span>${item.label}</span><b id="advanced-hud-${i}">${item.value}</b></div>`).join('') + '<div class="hud-message" id="advanced-message" aria-live="polite"></div>'; }
   function hudValue(i, value) { const el = document.querySelector(`#advanced-hud-${i}`); if (el) el.textContent = value; }
@@ -23,7 +24,7 @@
     if (!info[key]) return;
     stop(); active = key; title.textContent = info[key].title; category.textContent = info[key].category; description.textContent = info[key].description;
     restart.textContent = 'Start a new game  ↻';
-    if (key === 'hole') startHole(); if (key === 'cookie') startCookie(); if (key === 'planet') startPlanet(); if (key === 'blast') startBlast(); if (key === 'chess') startChess();
+    if (key === 'hole') startHole(); if (key === 'cookie') startCookie(); if (key === 'planet') startPlanet(); if (key === 'blast') startBlast(); if (key === 'chess') startChess(); if (key === 'sound') startSound();
   }
   function open(key, opener) { active = key; lastFocus = opener; modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; launch(key); modal.querySelector('.close-button').focus(); }
   function close() { if (!modal.classList.contains('is-open')) return; stop(); modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; active = ''; if (lastFocus) lastFocus.focus(); }
@@ -374,6 +375,74 @@
     stage.querySelectorAll('[data-tool]').forEach(button => button.addEventListener('click', () => { const action = button.dataset.tool; if (action === 'undo' && impacts.length) { const h = impacts.pop(); damage = Math.max(0, damage - h.power * .36); impactCount = Math.max(0, impactCount - 1); particles.splice(-Math.min(particles.length, Math.floor(h.power * .85))); redrawDamage(); update(); message('Last impact undone.'); } if (action === 'reset') { impacts = []; particles = []; damage = 0; impactCount = 0; challenge = 0; makeTexture(); update(); message('World restored to its original surface.'); } if (action === 'zoom-in') zoom = Math.min(1.4, zoom + .12); if (action === 'zoom-out') zoom = Math.max(.65, zoom - .12); if (action === 'moon') { moons = Math.min(6, moons + 1); update(); message('A moon joined the orbit.'); } if (action === 'mode') { const modes = ['Sandbox','Solar System','Survival','Challenge']; mode = modes[(modes.indexOf(mode) + 1) % modes.length]; if (mode === 'Solar System' && !moons) moons = 2; if (mode === 'Survival') { impacts = []; damage = 0; impactCount = 0; challenge = 0; } if (mode === 'Challenge') { challenge = 0; impacts = []; damage = 0; impactCount = 0; } makeTexture(); update(); button.textContent = `Mode: ${mode}`; message(`${mode} mode selected.`); } }));
     scaleInput.addEventListener('input', () => { scale = Number(scaleInput.value) / 100; });
     cleanup = () => { active = false; cancelAnimationFrame(raf); ro.disconnect(); canvas.removeEventListener('pointerdown', onDown); canvas.removeEventListener('pointermove', onMove); canvas.removeEventListener('pointerup', onUp); canvas.removeEventListener('pointercancel', onUp); canvas.removeEventListener('wheel', onWheel); };
+  }
+
+  function startSound() {
+    let best = 0; try { best = Number(localStorage.getItem('aura-echo-grove-best')) || 0; } catch (_) {}
+    makeHud([{ label: 'Mode', value: 'Freeplay' }, { label: 'Score', value: '0' }, { label: 'Best', value: best.toLocaleString() }, { label: 'Round', value: '—' }]);
+    controls.textContent = 'Tap any pad to play a sound. In Echo Challenge, listen to the pattern, then repeat it. Keyboard keys Q W E R / A S D F / Z X C V play the pads.';
+    stage.innerHTML = `<div class="sound-game"><div class="sound-header"><div><h3>Little sounds, growing songs.</h3><p class="sound-prompt" id="sound-message" aria-live="polite">Choose Freeplay or start an Echo Challenge.</p></div><div class="sound-actions"><button id="sound-free" class="active">Freeplay</button><button id="sound-echo">Echo challenge</button><button id="sound-replay" disabled>Replay pattern</button><button id="sound-stop">Stop sounds</button></div></div><div class="sound-board" role="grid" aria-label="Twelve garden sound pads"></div><div class="sound-footer"><label class="sound-volume">Volume <input id="sound-volume" type="range" min="0" max="100" value="68"><span id="sound-volume-value">68%</span></label><button id="sound-mute">Sound: On</button><span class="sound-hint">Headphones make the tiny details easier to hear.</span></div></div>`;
+    const pads = [
+      ['Pond ping','💧','tone',659,'sine'], ['Star bell','✦','pair',880,'triangle'], ['Seed pop','●','tone',220,'square'], ['Bird hello','🐦','chirp',740,'sine'],
+      ['Wind chime','♫','pair',587,'sine'], ['Frog plop','🐸','tone',165,'triangle'], ['Rain patter','☂','noise',0,'highpass'], ['Soft thunder','☁','noise',0,'lowpass'],
+      ['Wood tap','▣','tone',130,'sine'], ['Leaf rustle','🍃','noise',0,'bandpass'], ['Firefly','✧','chirp',980,'triangle'], ['Night owl','◉','chirp',310,'sine']
+    ];
+    const board = stage.querySelector('.sound-board'), status = stage.querySelector('#sound-message'), replay = stage.querySelector('#sound-replay'), volumeInput = stage.querySelector('#sound-volume'), volumeValue = stage.querySelector('#sound-volume-value'), freeButton = stage.querySelector('#sound-free'), echoButton = stage.querySelector('#sound-echo');
+    let mode = 'free', taps = 0, score = 0, round = 0, misses = 0, sequence = [], inputAt = 0, locked = false, muted = false, volume = .68, audio = null, noiseBuffer = null, activeNodes = new Set(), timers = [], closed = false;
+    const keyMap = ['q','w','e','r','a','s','d','f','z','x','c','v'];
+    function say(text) { status.textContent = text; message(text); }
+    function saveBest() { try { localStorage.setItem('aura-echo-grove-best', String(best)); } catch (_) {} }
+    function hudUpdate() { hudValue(0, mode === 'free' ? 'Freeplay' : 'Echo'); hudValue(1, (mode === 'free' ? taps : score).toLocaleString()); hudValue(2, best.toLocaleString()); hudValue(3, mode === 'free' ? '—' : String(round)); }
+    function setActivePad(index, on) { const pad = board.querySelector(`[data-pad="${index}"]`); if (pad) pad.classList.toggle('playing', on); }
+    function ensureAudio() {
+      if (audio) { if (audio.state === 'suspended') audio.resume().catch(() => {}); return audio; }
+      const Audio = window.AudioContext || window.webkitAudioContext; if (!Audio) { say('This browser does not have audio support. The pad labels and game still work.'); return null; }
+      try { audio = new Audio(); const length = Math.ceil(audio.sampleRate * .7); noiseBuffer = audio.createBuffer(1, length, audio.sampleRate); const data = noiseBuffer.getChannelData(0); for (let i = 0; i < length; i++) data[i] = Math.random() * 2 - 1; return audio; } catch (_) { audio = null; say('Audio could not start in this browser.'); return null; }
+    }
+    function track(node) { activeNodes.add(node); node.onended = () => activeNodes.delete(node); return node; }
+    function playPad(index, when) {
+      if (muted || volume <= 0 || closed) return; const ctx = ensureAudio(); if (!ctx) return; const pad = pads[index], start = Math.max(ctx.currentTime + .004, when || ctx.currentTime), gain = ctx.createGain(); gain.gain.setValueAtTime(.0001, start); gain.connect(ctx.destination);
+      if (pad[2] === 'noise') {
+        const source = track(ctx.createBufferSource()), filter = ctx.createBiquadFilter(); source.buffer = noiseBuffer; filter.type = pad[4]; filter.frequency.value = pad[4] === 'highpass' ? 2100 : pad[4] === 'lowpass' ? 440 : 1150; filter.Q.value = pad[4] === 'bandpass' ? .7 : .45; source.connect(filter); filter.connect(gain); const dur = index === 7 ? .52 : .24, peak = volume * (index === 7 ? .19 : .13); gain.gain.exponentialRampToValueAtTime(peak, start + .014); gain.gain.exponentialRampToValueAtTime(.0001, start + dur); source.start(start); source.stop(start + dur);
+      } else {
+        const osc = track(ctx.createOscillator()); osc.type = pad[4]; osc.frequency.setValueAtTime(pad[3], start);
+        if (pad[2] === 'chirp') { const endFreq = index === 11 ? 230 : pad[3] * 1.48; osc.frequency.exponentialRampToValueAtTime(endFreq, start + .13); }
+        else if (index === 2 || index === 8) osc.frequency.exponentialRampToValueAtTime(pad[3] * .48, start + .16);
+        osc.connect(gain); const dur = pad[2] === 'pair' ? .48 : pad[2] === 'chirp' ? .22 : .3, peak = volume * (pad[2] === 'pair' ? .16 : .2); gain.gain.exponentialRampToValueAtTime(peak, start + .012); gain.gain.exponentialRampToValueAtTime(.0001, start + dur); osc.start(start); osc.stop(start + dur);
+        if (pad[2] === 'pair') { const second = track(ctx.createOscillator()), secondGain = ctx.createGain(); second.type = 'sine'; second.frequency.value = pad[3] * 1.25; secondGain.gain.setValueAtTime(.0001, start); secondGain.gain.exponentialRampToValueAtTime(volume * .065, start + .014); secondGain.gain.exponentialRampToValueAtTime(.0001, start + .42); second.connect(secondGain); secondGain.connect(ctx.destination); second.start(start); second.stop(start + .43); }
+      }
+    }
+    function playSequence() {
+      if (!sequence.length || closed) return; locked = true; replay.disabled = true; say('Listen closely…'); const gap = 590;
+      sequence.forEach((index, position) => { const timer = setTimeout(() => { setActivePad(index, true); playPad(index); const off = setTimeout(() => setActivePad(index, false), 330); timers.push(off); }, 380 + position * gap); timers.push(timer); });
+      const unlock = setTimeout(() => { locked = false; inputAt = 0; replay.disabled = false; say('Your turn — repeat the pattern.'); }, 430 + sequence.length * gap); timers.push(unlock);
+    }
+    function nextRound() { if (closed || mode !== 'echo') return; sequence.push(Math.floor(Math.random() * pads.length)); round++; hudUpdate(); replay.disabled = false; playSequence(); }
+    function chooseMode(next) {
+      timers.forEach(clearTimeout); timers = []; sequence = []; inputAt = 0; locked = false; mode = next; misses = 0; round = 0; score = 0; freeButton.classList.toggle('active', mode === 'free'); echoButton.classList.toggle('active', mode === 'echo'); replay.disabled = true;
+      if (mode === 'free') say('Freeplay is ready — tap a pad or use the QWERTY row.'); else { say('Echo Challenge · listen for three sounds, then repeat them.'); const start = setTimeout(nextRound, 700); timers.push(start); }
+      hudUpdate();
+    }
+    function hit(index) {
+      if (locked || closed) return; setActivePad(index, true); setTimeout(() => setActivePad(index, false), 170); playPad(index);
+      if (mode === 'free') { taps++; hudUpdate(); return; }
+      if (index === sequence[inputAt]) {
+        inputAt++; if (inputAt >= sequence.length) { score += round * 10; if (score > best) { best = score; saveBest(); say('Lovely echo! New best score. The pattern is growing…'); } else say('Lovely echo! The pattern is growing…'); locked = true; replay.disabled = true; hudUpdate(); const next = setTimeout(nextRound, 850); timers.push(next); }
+        else say(`${sequence.length - inputAt} more sound${sequence.length - inputAt === 1 ? '' : 's'} to go…`);
+      } else {
+        misses++; if (misses >= 3) { locked = true; say(`The grove got quiet. Final score: ${score}. Start Echo Challenge to try again.`); sequence = []; replay.disabled = true; }
+        else { locked = true; say(`Not quite · ${3 - misses} ${3 - misses === 1 ? 'try' : 'tries'} left. Listen once more…`); const replayTimer = setTimeout(playSequence, 700); timers.push(replayTimer); }
+        hudUpdate();
+      }
+    }
+    pads.forEach((def, index) => { const button = document.createElement('button'); button.className = `sound-pad sound-color-${index % 6}`; button.dataset.pad = index; button.setAttribute('role', 'gridcell'); button.setAttribute('aria-label', `${def[0]} sound, key ${keyMap[index].toUpperCase()}`); button.title = `Key ${keyMap[index].toUpperCase()}`; button.innerHTML = `<span class="sound-icon" aria-hidden="true">${def[1]}</span><b>${def[0]}</b><small>${keyMap[index].toUpperCase()}</small>`; button.addEventListener('click', () => hit(index)); board.append(button); });
+    freeButton.addEventListener('click', () => chooseMode('free')); echoButton.addEventListener('click', () => chooseMode('echo')); replay.addEventListener('click', () => { if (mode === 'echo' && sequence.length && !locked) playSequence(); });
+    stage.querySelector('#sound-stop').addEventListener('click', () => { activeNodes.forEach(node => { try { node.stop(); } catch (_) {} }); activeNodes.clear(); board.querySelectorAll('.playing').forEach(p => p.classList.remove('playing')); say('Sounds stopped.'); });
+    stage.querySelector('#sound-mute').addEventListener('click', event => { muted = !muted; event.currentTarget.textContent = `Sound: ${muted ? 'Off' : 'On'}`; say(muted ? 'Sound is off · challenge lights still play.' : 'Sound is on.'); });
+    volumeInput.addEventListener('input', () => { volume = Number(volumeInput.value) / 100; volumeValue.textContent = `${volumeInput.value}%`; });
+    const onKey = event => { if (!modal.classList.contains('is-open') || active !== 'sound' || event.repeat || event.ctrlKey || event.altKey || event.metaKey || /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '')) return; const index = keyMap.indexOf(event.key.toLowerCase()); if (index >= 0) { event.preventDefault(); hit(index); } };
+    window.addEventListener('keydown', onKey); hudUpdate();
+    cleanup = () => { closed = true; timers.forEach(clearTimeout); timers = []; activeNodes.forEach(node => { try { node.stop(); } catch (_) {} }); activeNodes.clear(); window.removeEventListener('keydown', onKey); if (audio) { audio.close().catch(() => {}); audio = null; } };
   }
 
   function startChess() {
