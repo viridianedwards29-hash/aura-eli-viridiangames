@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5ef">
+  <meta name="description" content="Thirty-one tiny original games for a bright little break. Free to play in your browser.">
+  <title>Aura Eli/Viridiangames — a tiny browser arcade</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="games.js" defer></script>
+  <script src="advanced-games.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#games">Skip to games</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Aura Eli/Viridiangames home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="brand-name">Aura Eli/Viridiangames</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#games">Games</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="header-cta" href="#games">Find a game <span aria-hidden="true">↘</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero page-wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> A tiny arcade for curious minds</p>
+        <h1 id="hero-title">Good things<br>grow <span>in play.</span></h1>
+        <p class="hero-text">Thirty-one original little games. No downloads, no accounts, just a few bright minutes whenever you need them.</p>
+        <a class="button button-lime" href="#games">Pick your world <span aria-hidden="true">↓</span></a>
+        <div class="hero-note"><span class="note-star">✳</span> Made for keyboard, mouse, and touch.</div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a tiny moon garden">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-moon"></div>
+        <div class="art-planet"><span></span></div>
+        <div class="art-sprout sprout-a"><i></i><b></b></div>
+        <div class="art-sprout sprout-b"><i></i><b></b></div>
+        <div class="art-spark spark-a">✦</div><div class="art-spark spark-b">✳</div>
+        <div class="art-caption"><span>01 / 03</span><b>the daydream garden</b></div>
+      </div>
+      <div class="hero-index"><span>SCROLL TO EXPLORE</span><span class="index-line"></span><span>01 — 03</span></div>
+    </section>
+
+    <section class="games-section page-wrap" id="games" aria-labelledby="games-title">
+      <div class="section-topline"><span class="eyebrow">THE PLAYGROUND</span><span class="section-count">THIRTY-ONE WORLDS · ALL YOURS</span></div>
+      <div class="section-heading">
+        <div><h2 id="games-title">Choose your<br><span>little escape.</span></h2></div>
+        <p>Each world has its own rhythm. Follow a signal, untangle a circuit, guide a kite, or find your way through a tiny maze.</p>
+      </div>
+      <div class="game-tools">
+        <label class="game-search"><span aria-hidden="true">⌕</span><input id="game-search" type="search" placeholder="Find a game by name or mood" aria-label="Find a game by name or mood"></label>
+        <p class="game-results" id="game-results" aria-live="polite">31 little worlds</p>
+      </div>
+      <div class="game-grid">
+        <article class="game-card card-comet">
+          <button class="card-open" data-game="comet" aria-label="Play Comet Catch">
+            <div class="card-art comet-art" aria-hidden="true">
+              <span class="comet-star star-1">✦</span><span class="comet-star star-2">✧</span><span class="comet-star star-3">·</span>
+              <span class="fruit fruit-one">✿</span><span class="fruit fruit-two">✿</span><span class="fruit fruit-three">✦</span>
+              <span class="comet-bowl"><i></i></span><span class="art-tag">ARCADE</span>
+            </div>
+            <div class="card-content">
+              <div class="card-meta"><span>01</span><span>30 sec · reflex</span></div>
+              <h3>Comet Catch</h3>
+              <p>Gather falling starlight. Dodge the dark comets.</p>
+              <span class="card-link">Catch a few <b aria-hidden="true">↗</b></span>
+            </div>
+          </button>
+        </article>
+        <article class="game-card card-signal">
+          <button class="card-open" data-game="signal" aria-label="Play Signal Garden">
+            <div class="card-art signal-art" aria-hidden="true">
+              <div class="signal-rings"></div><span class="signal-dot dot-a"></span><span class="signal-dot dot-b"></span><span class="signal-dot dot-c"></span><span class="signal-dot dot-d"></span>
+              <span class="signal-center">✳</span><span class="art-tag">MEMORY</span>
+            </div>
+            <div class="card-content">
+              <div class="card-meta"><span>02</span><span>Take your time · memory</span></div>
+              <h3>Signal Garden</h3>
+              <p>Watch the lights bloom. Can you repeat their song?</p>
+              <span class="card-link">Follow the lights <b aria-hidden="true">↗</b></span>
+            </div>
+          </button>
+        </article>
+        <article class="game-card card-circuit">
+          <button class="card-open" data-game="circuit" aria-label="Play Circuit Bloom">
+            <div class="card-art circuit-art" aria-hidden="true">
+              <div class="circuit-grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <span class="circuit-flower">✳</span><span class="circuit-path"></span><span class="art-tag">PUZZLE</span>
+            </div>
+            <div class="card-content">
+              <div class="card-meta"><span>03</span><span>Untangle · logic</span></div>
+              <h3>Circuit Bloom</h3>
+              <p>Turn the tiles. Lead a little spark to its flower.</p>
+              <span class="card-link">Make a connection <b aria-hidden="true">↗</b></span>
+            </div>
+          </button>
+        </article>
+        <article class="game-card card-kite">
+          <button class="card-open" data-game="kite" aria-label="Play Kite Keeper">
+            <div class="card-art kite-art" aria-hidden="true">
+              <span class="kite-sun"></span><span class="kite-cloud cloud-a"></span><span class="kite-cloud cloud-b"></span><span class="kite-shape">◆<i>〰</i></span><span class="kite-spark">✦</span><span class="art-tag">ARCADE</span>
+            </div>
+            <div class="card-content">
+              <div class="card-meta"><span>04</span><span>Fly free · reflex</span></div>
+              <h3>Kite Keeper</h3>
+              <p>Ride the breeze, collect wind blooms, and steer around clouds.</p>
+              <span class="card-link">Catch the breeze <b aria-hidden="true">↗</b></span>
+            </div>
+          </button>
+        </article>
+        <article class="game-card card-maze">
+          <button class="card-open" data-game="maze" aria-label="Play Firefly Maze">
+            <div class="card-art maze-art" aria-hidden="true">
+              <div class="mini-maze"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="maze-glow">✦</span><span class="maze-exit">✿</span><span class="art-tag">ADVENTURE</span>
+            </div>
+            <div class="card-content">
+              <div class="card-meta"><span>05</span><span>Explore · collect</span></div>
+              <h3>Firefly Maze</h3>
+              <p>Find three fireflies, then make your way to the garden gate.</p>
+              <span class="card-link">Find your way <b aria-hidden="true">↗</b></span>
+            </div>
+          </button>
+        </article>
+        <article class="game-card card-word">
+          <button class="card-open" data-game="word" aria-label="Play Word Lanterns">
+            <div class="card-art word-art" aria-hidden="true">
+              <span class="letter-tile letter-a">M</span><span class="letter-tile letter-b">O</span><span class="letter-tile letter-c">S</span><span class="letter-tile letter-d">S</span><span class="word-glow">✧</span><span class="art-tag">WORDPLAY</span>
+            </div>
+            <div class="card-content">
+              <div class="card-meta"><span>06</span><span>Unscramble · cozy</span></div>
+              <h3>Word Lanterns</h3>
+              <p>Unshuffle a little word with gentle clues along the way.</p>
+              <span class="card-link">Find the word <b aria-hidden="true">↗</b></span>
+            </div>
+          </button>
+        </article>
+        <article class="game-card card-pairs">
+          <button class="card-open" data-game="pairs" aria-label="Play Pebble Pairs">
+            <div class="card-art pairs-art" aria-hidden="true"><span>✿</span><span>◈</span><span>☾</span><span>✿</span><span>♧</span><span>◈</span><span class="art-tag">MEMORY</span></div>
+            <div class="card-content"><div class="card-meta"><span>07</span><span>Remember · cozy</span></div><h3>Pebble Pairs</h3><p>Turn over little keepsakes and find all eight matching pairs.</p><span class="card-link">Find a match <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-shapes">
+          <button class="card-open" data-game="shapes" aria-label="Play Cloud Shapes">
+            <div class="card-art shapes-art" aria-hidden="true"><span class="shape-pixel p1"></span><span class="shape-pixel p2"></span><span class="shape-pixel p3"></span><span class="shape-pixel p4"></span><span class="shape-pixel p5"></span><span class="shape-pixel p6"></span><span class="shape-pixel p7"></span><span class="shape-pixel p8"></span><span class="shape-pixel p9"></span><span class="shape-pixel p10"></span><span class="shape-pixel p11"></span><span class="shape-pixel p12"></span><span class="art-tag">LOGIC</span></div>
+            <div class="card-content"><div class="card-meta"><span>08</span><span>Read the clues · logic</span></div><h3>Cloud Shapes</h3><p>Use the row and column clues to uncover a hidden picture.</p><span class="card-link">Reveal a shape <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-stars">
+          <button class="card-open" data-game="stars" aria-label="Play Star Mapper">
+            <div class="card-art stars-art" aria-hidden="true"><span class="constellation-line"></span><i>✦</i><i>✦</i><i>✦</i><i>✦</i><i>✦</i><i>✦</i><span class="art-tag">TRACE</span></div>
+            <div class="card-content"><div class="card-meta"><span>09</span><span>Connect · explore</span></div><h3>Star Mapper</h3><p>Follow the numbered stars and draw three little constellations.</p><span class="card-link">Map the sky <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-lily">
+          <button class="card-open" data-game="lily" aria-label="Play Lily Hop">
+            <div class="card-art lily-art" aria-hidden="true"><span class="lily-moon">☾</span><span class="lily-pad lp1">✿</span><span class="lily-pad lp2">✿</span><span class="lily-pad lp3">✿</span><span class="art-tag">ARCADE</span></div>
+            <div class="card-content"><div class="card-meta"><span>10</span><span>Cross the stream · reflex</span></div><h3>Lily Hop</h3><p>Hop between drifting lily logs and find the pearl garden.</p><span class="card-link">Take a little leap <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-numbers">
+          <button class="card-open" data-game="numbers" aria-label="Play Number Nook">
+            <div class="card-art numbers-art" aria-hidden="true"><span class="number-token nt1">7</span><span class="number-token nt2">+</span><span class="number-token nt3">5</span><span class="number-token nt4">?</span><span class="art-tag">QUICK THINK</span></div>
+            <div class="card-content"><div class="card-meta"><span>11</span><span>Think fast · numbers</span></div><h3>Number Nook</h3><p>Solve little number puzzles before the clock runs out.</p><span class="card-link">Warm up your brain <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-patchwork">
+          <button class="card-open" data-game="patchwork" aria-label="Play Patchwork Path">
+            <div class="card-art patchwork-art" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span class="art-tag">SLIDING PUZZLE</span></div>
+            <div class="card-content"><div class="card-meta"><span>12</span><span>Slide · arrange</span></div><h3>Patchwork Path</h3><p>Slide the little tiles into order and make a path back home.</p><span class="card-link">Untangle the tiles <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-runes">
+          <button class="card-open" data-game="runes" aria-label="Play Rune Riddle">
+            <div class="card-art runes-art" aria-hidden="true"><span class="rune r1">✦</span><span class="rune r2">☾</span><span class="rune r3">❋</span><span class="rune r4">◈</span><span class="rune r5">✿</span><span class="art-tag">DECODE</span></div>
+            <div class="card-content"><div class="card-meta"><span>13</span><span>Deduce · decode</span></div><h3>Rune Riddle</h3><p>Guess the hidden four-rune code using clues after each try.</p><span class="card-link">Crack the code <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-sort">
+          <button class="card-open" data-game="sort" aria-label="Play Dewdrop Sort">
+            <div class="card-art sort-art" aria-hidden="true"><span class="sort-jar jar-one"><i></i><i></i><i></i></span><span class="sort-jar jar-two"><i></i><i></i><i></i></span><span class="sort-jar jar-three"><i></i><i></i><i></i></span><span class="art-tag">SORTING</span></div>
+            <div class="card-content"><div class="card-meta"><span>14</span><span>Sort · strategy</span></div><h3>Dewdrop Sort</h3><p>Pour the colors between little bottles until each holds one shade.</p><span class="card-link">Put colors in order <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-putt">
+          <button class="card-open" data-game="putt" aria-label="Play Pocket Putt">
+            <div class="card-art putt-art" aria-hidden="true"><span class="putt-ball"></span><span class="putt-cup"></span><span class="putt-path"></span><span class="art-tag">MINI GOLF</span></div>
+            <div class="card-content"><div class="card-meta"><span>15</span><span>Aim · physics</span></div><h3>Pocket Putt</h3><p>Pull back, pick your angle, and roll a little ball to the cup.</p><span class="card-link">Take a shot <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-type">
+          <button class="card-open" data-game="type" aria-label="Play Garden Type">
+            <div class="card-art type-art" aria-hidden="true"><span class="type-word">bloom</span><span class="type-cursor"></span><span class="art-tag">TYPING</span></div>
+            <div class="card-content"><div class="card-meta"><span>16</span><span>Type · focus</span></div><h3>Garden Type</h3><p>Type a string of small nature words before the timer ends.</p><span class="card-link">Find your rhythm <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-seed">
+          <button class="card-open" data-game="seed" aria-label="Play Seed Shifter">
+            <div class="card-art seed-art" aria-hidden="true"><span>●</span><span>●</span><span>●</span><span>✿</span><span class="art-tag">PUSH PUZZLE</span></div>
+            <div class="card-content"><div class="card-meta"><span>17</span><span>Push · plan</span></div><h3>Seed Shifter</h3><p>Push the wandering seeds onto their flower plots without getting stuck.</p><span class="card-link">Plan a path <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-swatch">
+          <button class="card-open" data-game="swatch" aria-label="Play Swatch Sprint">
+            <div class="card-art swatch-art" aria-hidden="true"><span class="swatch-word">MINT</span><span class="swatch-chip sc1"></span><span class="swatch-chip sc2"></span><span class="swatch-chip sc3"></span><span class="swatch-chip sc4"></span><span class="art-tag">COLOR REFLEX</span></div>
+            <div class="card-content"><div class="card-meta"><span>18</span><span>Focus · reflex</span></div><h3>Swatch Sprint</h3><p>Read the ink, not the word, and pick its true color.</p><span class="card-link">Test your focus <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-rally">
+          <button class="card-open" data-game="rally" aria-label="Play Bounce Buddies">
+            <div class="card-art rally-art" aria-hidden="true"><span class="rally-ball"></span><span class="rally-paddle rp-left"></span><span class="rally-paddle rp-right"></span><span class="art-tag">SOLO RALLY</span></div>
+            <div class="card-content"><div class="card-meta"><span>19</span><span>Rally · challenge</span></div><h3>Bounce Buddies</h3><p>Keep the ball in play against a little computer opponent.</p><span class="card-link">Start a rally <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-seek">
+          <button class="card-open" data-game="seek" aria-label="Play Sunbeam Seek">
+            <div class="card-art seek-art" aria-hidden="true"><span class="seek-sun">☼</span><span class="seek-ring"></span><span class="art-tag">HOT & COLD</span></div>
+            <div class="card-content"><div class="card-meta"><span>20</span><span>Search · explore</span></div><h3>Sunbeam Seek</h3><p>Find the hidden sunseed by following the warmer and cooler hints.</p><span class="card-link">Search the garden <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-odd">
+          <button class="card-open" data-game="odd" aria-label="Play Odd Acorn">
+            <div class="card-art odd-art" aria-hidden="true"><span>✿</span><span>✿</span><span>✿</span><span>✿</span><span>✦</span><span>✿</span><span class="art-tag">SPOT IT</span></div>
+            <div class="card-content"><div class="card-meta"><span>21</span><span>Spot · focus</span></div><h3>Odd Acorn</h3><p>Find one little symbol hiding among a field of lookalikes.</p><span class="card-link">Spot the difference <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-petalpop">
+          <button class="card-open" data-game="petalpop" aria-label="Play Petal Pop">
+            <div class="card-art petalpop-art" aria-hidden="true"><span>✿</span><span>✦</span><span>❋</span><span>✿</span><span>◈</span><span>❋</span><span class="art-tag">MATCH THREE</span></div>
+            <div class="card-content"><div class="card-meta"><span>22</span><span>Swap · cascade</span></div><h3>Petal Pop</h3><p>Swap neighboring blooms to make little chains of three or more.</p><span class="card-link">Make a match <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-knight">
+          <button class="card-open" data-game="knight" aria-label="Play Knight's Garden">
+            <div class="card-art knight-art" aria-hidden="true"><span class="knight-piece">♘</span><span class="knight-star ks1">✦</span><span class="knight-star ks2">✦</span><span class="knight-star ks3">✦</span><span class="art-tag">L-SHAPED MOVES</span></div>
+            <div class="card-content"><div class="card-meta"><span>23</span><span>Explore · plan</span></div><h3>Knight's Garden</h3><p>Hop in an L-shape to gather three fireflies and find the gate.</p><span class="card-link">Take the long jump <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-mosslight">
+          <button class="card-open" data-game="mosslight" aria-label="Play Mosslight">
+            <div class="card-art mosslight-art" aria-hidden="true"><span>1</span><span>2</span><span>1</span><span>✦</span><span>2</span><span>1</span><span class="art-tag">NUMBER LOGIC</span></div>
+            <div class="card-content"><div class="card-meta"><span>24</span><span>Deduce · uncover</span></div><h3>Mosslight</h3><p>Use the little number clues to uncover fireflies without finding a thorn.</p><span class="card-link">Explore the moss <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-shut">
+          <button class="card-open" data-game="shut" aria-label="Play Shut the Garden">
+            <div class="card-art shut-art" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span class="art-tag">DICE STRATEGY</span></div>
+            <div class="card-content"><div class="card-meta"><span>25</span><span>Roll · choose</span></div><h3>Shut the Garden</h3><p>Choose petals that add up to the dice, then see how many you can close.</p><span class="card-link">Roll the garden dice <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card card-clover">
+          <button class="card-open" data-game="clover" aria-label="Play Clover Climber">
+            <div class="card-art clover-art" aria-hidden="true"><span class="clover-card">7</span><span class="clover-arrow">↑</span><span class="clover-next">?</span><span class="art-tag">PUSH YOUR LUCK</span></div>
+            <div class="card-content"><div class="card-meta"><span>26</span><span>Guess · risk</span></div><h3>Clover Climber</h3><p>Guess whether the next card is higher, lower, or the same. Bank your streak.</p><span class="card-link">Take a chance <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card advanced-card card-hole">
+          <button class="advanced-open" data-advanced="hole" aria-label="Play Hole Borough">
+            <div class="card-art hole-art" aria-hidden="true"><span class="hole-tower"></span><span class="hole-road"></span><span class="hole-sink"></span><span class="art-tag">CITY ARENA</span></div>
+            <div class="card-content"><div class="card-meta"><span>27</span><span>Explore · compete</span></div><h3>Hole Borough</h3><p>Grow your roaming sinkhole in a living, isometric city against clever rivals.</p><span class="card-link">Enter the borough <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card advanced-card card-cookie">
+          <button class="advanced-open" data-advanced="cookie" aria-label="Play Cookie Kingdom">
+            <div class="card-art cookie-art" aria-hidden="true"><span class="big-cookie">●</span><span class="cookie-chip cc1"></span><span class="cookie-chip cc2"></span><span class="art-tag">INCREMENTAL</span></div>
+            <div class="card-content"><div class="card-meta"><span>28</span><span>Click · build</span></div><h3>Cookie Kingdom</h3><p>Click a cookie, build an empire, and unlock more than a hundred upgrades.</p><span class="card-link">Start baking <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card advanced-card card-planet">
+          <button class="advanced-open" data-advanced="planet" aria-label="Play Planet Forge">
+            <div class="card-art planet-art" aria-hidden="true"><span class="planet-orb"></span><span class="planet-ring"></span><span class="planet-blast">✦</span><span class="art-tag">SPACE SANDBOX</span></div>
+            <div class="card-content"><div class="card-meta"><span>29</span><span>Sandbox · space</span></div><h3>Planet Forge</h3><p>Rotate worlds, aim a weapon, and leave persistent craters and fractures.</p><span class="card-link">Shape a planet <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card advanced-card card-blast">
+          <button class="advanced-open" data-advanced="blast" aria-label="Play Block Bloom">
+            <div class="card-art blast-art" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span class="art-tag">BLOCK PUZZLE</span></div>
+            <div class="card-content"><div class="card-meta"><span>30</span><span>Place · clear</span></div><h3>Block Bloom</h3><p>Fit colorful shapes on the grid, clear lines, and keep the garden growing.</p><span class="card-link">Place a shape <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+        <article class="game-card advanced-card card-chess">
+          <button class="advanced-open" data-advanced="chess" aria-label="Play Garden Chess">
+            <div class="card-art chess-art" aria-hidden="true"><span>♖</span><span>♘</span><span>♙</span><span>♟</span><span>♞</span><span>♜</span><span class="art-tag">TWO PLAYERS</span></div>
+            <div class="card-content"><div class="card-meta"><span>31</span><span>Two-player · strategy</span></div><h3>Garden Chess</h3><p>Play a full local two-player chess match, with legal moves and checkmate.</p><span class="card-link">Pass the board <b aria-hidden="true">↗</b></span></div>
+          </button>
+        </article>
+      </div>
+      <p class="no-games" id="no-games" hidden>No little worlds match that search. Try another word.</p>
+    </section>
+
+    <section class="about-strip" id="about">
+      <div class="page-wrap about-inner">
+        <div class="about-mark" aria-hidden="true">✳</div>
+        <div><p class="eyebrow">A NOTE FROM THE GARDEN</p><h2>Small games.<br><span>Room to breathe.</span></h2></div>
+        <p>Aura Eli/Viridiangames is a quiet corner of the internet: thirty-one original games made with plain HTML, CSS, and JavaScript. Everything runs right here in your browser. No sign-up, downloads, or outside services.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer page-wrap">
+    <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span class="brand-name">Aura Eli/Viridiangames</span></a>
+    <span>Made for little breaks and big imaginations.</span>
+    <a href="#top">Back to the top ↑</a>
+  </footer>
+
+  <div class="game-modal" id="game-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
+      <header class="modal-header">
+        <div class="modal-heading"><button class="icon-button back-button" data-close-modal aria-label="Close game">←</button><div><p class="eyebrow" id="modal-category">THE PLAYGROUND</p><h2 id="modal-title">Game title</h2></div></div>
+        <button class="icon-button close-button" data-close-modal aria-label="Close game">×</button>
+      </header>
+      <p class="modal-description" id="modal-description"></p>
+      <div class="game-hud" id="game-hud"></div>
+      <div class="game-stage" id="game-stage"></div>
+      <div class="modal-footer"><span id="game-controls"></span><button class="text-button" id="restart-game">Start a new round <span aria-hidden="true">↻</span></button></div>
+    </section>
+  </div>
+
+  <div class="game-modal" id="advanced-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-advanced-close></div>
+    <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="advanced-title" aria-describedby="advanced-description">
+      <header class="modal-header">
+        <div class="modal-heading"><button class="icon-button" data-advanced-close aria-label="Close game">←</button><div><p class="eyebrow" id="advanced-category">THE PLAYGROUND</p><h2 id="advanced-title">Game title</h2></div></div>
+        <button class="icon-button close-button" data-advanced-close aria-label="Close game">×</button>
+      </header>
+      <p class="modal-description" id="advanced-description"></p>
+      <div class="game-hud" id="advanced-hud"></div>
+      <div class="game-stage" id="advanced-stage"></div>
+      <div class="modal-footer"><span id="advanced-controls"></span><button class="text-button" id="advanced-restart">Start a new game <span aria-hidden="true">↻</span></button></div>
+    </section>
+  </div>
+</body>
+</html>
